@@ -5,10 +5,19 @@ class User < ActiveRecord::Base
   has_many :reviews, :foreign_key => 'guest_id'
 
   ###Guest###
-#  has_many  :hosts, :through => :trip_listings, :foreign_key => :host_id
-# has_many :hosts, :through => :trip_listings, :foreign_key => :host_id
+  has_many  :hosts, :through => :trip_listings, :foreign_key => :host_id
+ has_many :hosts, :through => :trip_listings, :foreign_key => :host_id
 
   ###Host###
-#  has_many  :guests, :through => :reservations, :class_name => "User"
-#  has_many  :host_reviews, :through => :guests, :source => :reviews
+  has_many  :guests, :through => :reservations, :class_name => "User"
+  has_many  :host_reviews, :through => :guests, :source => :reviews
+
+  def host?
+    if self.is_host == true
+    else
+      false
+    end
+  end
+
+  
 end

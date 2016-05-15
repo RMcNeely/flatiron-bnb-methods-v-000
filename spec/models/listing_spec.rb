@@ -128,7 +128,7 @@ describe Listing do
     let(:santa_monica) { Neighborhood.create(name: 'Santa Monica', city: los_angelos) }
 
     context 'when listing created' do
-      let(:user) { User.create(name: 'Tina Fey', host: false) }
+      let(:user) { User.create(name: 'Tina Fey', is_host: false) }
       let(:other_user) { User.create(name: 'Not Tina Fey') }
 
       it 'changes user host status' do
@@ -146,7 +146,7 @@ describe Listing do
     end
 
     context "when some of a host's listings are destroyed" do
-      let(:user) { User.create(name: 'Tina Fey', host: true) }
+      let(:user) { User.create(name: 'Tina Fey', is_host: true) }
       let(:other_user) { User.create(name: 'Not Tina Fey') }
 
       let(:first_listing) { Listing.create(address: '123 Main Street',
@@ -184,7 +184,7 @@ describe Listing do
     end
 
     context "when all of a host's listings are destroyed" do
-      let(:user) { User.create(name: 'Tina Fey', host: true) }
+      let(:user) { User.create(name: 'Tina Fey', is_host: true) }
       let(:other_user) { User.create(name: 'Not Tina Fey') }
 
       let(:first_listing) { Listing.create(address: '123 Main Street',
@@ -210,7 +210,7 @@ describe Listing do
           host: user) }
 
       it 'changes host status to false' do
-        expect(user.host).to eq(true)
+        expect(user.is_ host).to eq(true)
         first_listing.destroy
         second_listing.destroy
         expect(user.reload.host?).to eq(false)
