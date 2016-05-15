@@ -26,8 +26,11 @@ gem 'spring', '~> 1.7.0',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'rake', '>= 11.0.0'
+gem 'rspec-support', '>= 3.4.1'
+
 group :development, :test do
-  gem "rspec-rails"
+  gem "rspec-rails", '>=3.2.0'
   gem "capybara"
   gem "selenium-webdriver"
   gem "better_errors"
